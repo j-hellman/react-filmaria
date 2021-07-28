@@ -2,6 +2,7 @@ import './filme-info.css';
 import { useParams, useHistory } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import api from '../../service/api';
+import { toast } from 'react-toastify'
 
 export default function Filme(){
   const { id } = useParams();
@@ -46,14 +47,28 @@ export default function Filme(){
     const hasFilme = filmesSalvos.some( (filmeSalvo) => filmeSalvo.id === filme.id ); //SOME devolve true ou false
 
     if (hasFilme){
-      alert('Você já possui esse filme salvo');
-      return; //Para a exdcução do filme aqui...
+      //Substitui o 'alert'
+      toast.info('Você já possui esse filme salvo', {
+        //Exemplo de algumas configurações para o Toast
+        position: "top-center",
+        autoClose: 3000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      }); 
+
+      //Para a execução do filme aqui...
+      return; 
     }
 
     //Para salvar
     filmesSalvos.push(filme);
     localStorage.setItem('filmes', JSON.stringify(filmesSalvos));
-    alert('Filme salvo com sucesso!')
+     
+    //Substitui o 'alert'
+    toast.success('Filme salvo com sucesso!');
   }
 
   //Se o Loading estiver no valor "true" cai dentro desse "if"
