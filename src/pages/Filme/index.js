@@ -54,8 +54,6 @@ export default function Filme(){
     filmesSalvos.push(filme);
     localStorage.setItem('filmes', JSON.stringify(filmesSalvos));
     alert('Filme salvo com sucesso!')
-
-
   }
 
   //Se o Loading estiver no valor "true" cai dentro desse "if"
