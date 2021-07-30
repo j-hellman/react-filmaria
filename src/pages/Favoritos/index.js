@@ -30,8 +30,8 @@ export default function Favoritos(){
     <div id="meus-filmes">
       <h1>Meus filmes favoritos</h1>
 
-      {/* Mensagem caso lista favoritos vazia*/}
-      {filmes.length === 0 && <span>Você não possui filmes salvos :(</span>}
+      {/* Mensagem em caso de lista favoritos vazia*/}
+      {filmes.length === 0 && <span>Você não possui filmes salvos :( </span>}
       
       <ul>
         {filmes.map((item) => {
